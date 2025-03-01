@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="header-actions">
+    <button class="icon-btn">
+      <img src="assets/icons/add.svg" class="icon-plus" />
+    </button>
+    <button class="icon-btn notification-btn">
+      <img src="assets/icons/notification.svg" class="icon-bell">
+      <span class="badge" *ngIf="unreadCount > 0"></span>
+    </button>
+    <div class="user-profile">
+      <span>{{User.name}}</span>
+      <app-dropdown-menu [options]="userMenuOptions" [showSelectionValue]="false" [selectedImage]="User.avatar">
+        <ng-template #headerTemplate>
+          <div class="custom-header custom-option">
+            <img class="custom-option-user-img" src="{{User.avatar}}" />
+            <div class="custom-option-user-info">
+              <span class="custom-option-user-name">{{User.name}}</span>
+              <span class="custom-option-user-email">{{User.email}}</span>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #optionTemplate let-option>
+          <div class="custom-option">
+            <img *ngIf="option.icon" [src]="option.icon" alt="{{ option.label }}">
+            <span>{{ option.label }}</span>
+          </div>
+        </ng-template>
+
+        <ng-template #footerTemplate>
+          <div class="custom-option">
+            <img src="assets/icons/logout.svg">
+            <span>Logout</span>
+          </div>
+        </ng-template>
+      </app-dropdown-menu>
+
+    </div>
+  </div>
+</header>

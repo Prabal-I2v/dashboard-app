@@ -1,0 +1,28 @@
+<div class="notifications-panel">
+    <div class="tabs">
+      <button 
+        [ngClass]="{'active': activeTab === 'notifications'}" 
+        (click)="setActiveTab('notifications')">
+        Notifications
+      </button>
+      <button 
+        [ngClass]="{'active': activeTab === 'announcements'}" 
+        (click)="setActiveTab('announcements')">
+        Announcements
+      </button>
+      <button class="close-btn">
+        <i class="icon-x"></i>
+      </button>
+    </div>
+    
+    <div class="notifications-list" *ngIf="activeTab === 'notifications'">
+      <app-notification-card 
+        *ngFor="let notification of notifications" 
+        [notification]="notification">
+      </app-notification-card>
+    </div>
+    
+    <div class="announcements-list" *ngIf="activeTab === 'announcements'">
+      <p class="empty-state">No announcements at this time.</p>
+    </div>
+  </div>

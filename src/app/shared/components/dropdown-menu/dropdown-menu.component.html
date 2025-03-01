@@ -1,0 +1,27 @@
+<div class="dropdown-container">
+  <div class="dropdown-header" (click)="toggleDropdown()">
+    <span *ngIf="showSelectionValue && selectedOption !=  ''" class="dropdown-text">{{ selectedOption }}</span>
+    <span *ngIf="selectedImage != ''" class="dropdown-image">
+      <img src="{{selectedImage}}" />
+    </span>
+    <span class="dropdown-icon">
+      <img src="assets/images/utility/arrow-down.svg" />
+    </span>
+  </div>
+
+  <ul *ngIf="isOpen" class="dropdown-menu">
+    <div *ngIf="headerTemplate">
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+      <hr class="row-seperator">
+    </div>
+    
+    <li *ngFor="let option of options" (click)="selectOption(option.label)">
+      <ng-container *ngTemplateOutlet="optionTemplate; context: { $implicit: option }"></ng-container>
+    </li>
+
+    <hr *ngIf="footerTemplate" class="row-seperator">
+    <li *ngIf="footerTemplate">
+      <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+    </li>
+  </ul>
+</div>

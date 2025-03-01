@@ -1,0 +1,63 @@
+.notifications-panel {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    // width: 320px;
+    max-height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      
+      button {
+        flex: 1;
+        padding: 16px;
+        background: none;
+        border: none;
+        font-size: 14px;
+        font-weight: 500;
+        position: relative;
+        cursor: pointer;
+        color: var(--text-muted);
+        
+        &.active {
+          color: var(--primary);
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+          }
+        }
+        
+        &.close-btn {
+          flex: 0;
+          width: 40px;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    
+    .notifications-list,
+    .announcements-list {
+      overflow-y: auto;
+      max-height: 450px;
+    }
+    
+    .empty-state {
+      padding: 40px 16px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+  }

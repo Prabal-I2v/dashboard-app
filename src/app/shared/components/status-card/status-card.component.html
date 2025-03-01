@@ -1,0 +1,17 @@
+<div class="status-card">
+  <div class="card-header">
+    <span class="card-title">{{ title }}</span>
+    <div class="card-icon" [ngClass]="'bg-' + iconColor + '-light'">
+      <img src="{{ icon }}" [class]="'text-' + iconColor">
+    </div>
+  </div>
+
+  <div class="card-count">{{ count }}</div>
+  <a [routerLink]="linkUrl" class="view-link">{{ linkText }}</a>
+
+  <div class="card-footer">
+      <span>{{ trend | number: '1.0-0' }}%</span>
+      <img [src]="'assets/images/utility/' + (trend > 0 ? 'trend-up' : 'trend-down') + '.svg'">
+      <span>{{ trendPeriod }}</span>
+  </div>
+</div>

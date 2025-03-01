@@ -1,0 +1,37 @@
+.notification-card {
+    display: flex;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    
+    &:hover {
+      background-color: var(--hover-bg);
+    }
+    
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .notification-content {
+      flex: 1;
+      
+      .message {
+        margin: 0 0 4px 0;
+        font-size: 14px;
+        color: var(--text-color);
+      }
+      
+      .timestamp {
+        margin: 0;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+    }
+  }
+  

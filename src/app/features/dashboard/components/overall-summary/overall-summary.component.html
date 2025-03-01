@@ -1,0 +1,30 @@
+<div class="card overall-summary">
+  <div class="card-header">
+    <span class="card-title">Overall summary</span>
+    <app-dropdown-menu [options]="timeOptions" [selectedOption]="'This Year'" (optionSelected)="onOptionSelect($event)">
+      <ng-template #optionTemplate let-option>
+        <div class="custom-option">
+          <img *ngIf="option.icon" [src]="'assets/icons/' + option.icon" alt="{{ option.label }}">
+          <span>{{ option.label }}</span>
+        </div>
+      </ng-template>
+    </app-dropdown-menu>
+  </div>
+  
+  <div class="card-body">
+    <div class="summary-item" *ngFor="let item of summaryData">
+      <div class="icon-wrapper" [ngClass]="item.class">
+        <img [src]="item.icon" />
+      </div>
+      <div class="content">
+        <h4 class="title">{{ item.title }}</h4>
+        <p class="amount">₹ {{ item.value | number }}</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="card-footer">
+    <a href="/users/violations" class="link">View Analytics</a>
+  </div>
+</div>
