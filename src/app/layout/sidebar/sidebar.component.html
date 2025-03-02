@@ -7,31 +7,29 @@
     </div>
     <div class="active-badge">Active</div>
   </div>
-  
+
   <!-- Navigation menu -->
   <nav class="navigation">
     <ul class="menu-list">
-      <li *ngFor="let item of menuItems; let i = index" 
-          class="menu-item"
-          [ngClass]="{'active': item.active}"
-          (click)="selectMenuItem(i)">
-        <div class="menu-item-conatiner" [routerLink]="item.route" [ngClass]="{'active': item.active}">
-          <img class="menu-icon" [src]="item.icon"  style="color : red" />
+      <li *ngFor="let item of menuItems; let i = index" [routerLink]="item.route" class="menu-item" [ngClass]="{'active': item.active} "
+        (click)="selectMenuItem(i)">
+        <div class="menu-item-conatiner"  [ngClass]="{'active': item.active}">
+          <div class="menu-icon" [style.--icon-url]="'url(' + item.icon + ')'" [style.--icon-color]="isDarkTheme ? 'white' : 'black'"></div>
           <span class="menu-label">{{ item.label }}</span>
         </div>
       </li>
     </ul>
   </nav>
-  
+
   <!-- Footer with theme toggle -->
   <div class="footer">
     <div class="theme-toggle">
       <div class="toggle-option" (click)="toggleTheme(false)" [ngClass]="{'selected': !isDarkTheme}">
-        <span class="toggle-icon">☀️</span>
+        <div class="menu-icon" [style.--icon-url]="'url(' + 'assets/icons/sun.svg' + ')'" [style.--icon-color]="isDarkTheme ? 'white' : 'black'"></div>
         <span class="toggle-label">Light</span>
       </div>
       <div class="toggle-option" (click)="toggleTheme(true)" [ngClass]="{'selected': isDarkTheme}">
-        <span class="toggle-icon">🌙</span>
+        <div class="menu-icon" [style.--icon-url]="'url(' + 'assets/icons/moon.svg' + ')'" [style.--icon-color]="isDarkTheme ? 'white' : 'black'"></div>
         <span class="toggle-label">Dark</span>
       </div>
     </div>
@@ -66,4 +64,3 @@
     </div>
   </div>
 </div> -->
-

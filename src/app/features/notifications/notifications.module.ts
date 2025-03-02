@@ -12,6 +12,7 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     SharedModule,
     NotificationsRoutingModule
-  ]
+  ],
+  exports: [NotificationsComponent]
 })
 export class NotificationsModule { }

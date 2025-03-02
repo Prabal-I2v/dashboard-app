@@ -63,10 +63,12 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-weight: 400;
 }
 
-.menu-item-conatiner{
+.menu-item-conatiner {
   display: flex;
+  gap: 12px;
 }
 
 .menu-icon {
@@ -75,17 +77,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
+  mask-image: var(--icon-url);
+  -webkit-mask-image: var(--icon-url);
+  mask-size: contain;  /* Ensures the image fits within the element */
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;  /* Prevents tiling */
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;  /* Centers the image */
+  -webkit-mask-position: center;
+  background-color: var(--icon-color); 
 }
 
 .menu-label {
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 22.68px;
+  letter-spacing: 0%;
+
 }
 
 /* Footer Styles */
 .footer {
   padding: 16px;
   border-top: 1px solid;
+  gap: 16px;
+  padding: 20px;
+
 }
 
 .theme-toggle {
@@ -96,18 +112,26 @@
 .toggle-option {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 32px;
+  border-width: 1px;
+
+  img {
+    width: 20px;
+    height: 20px;
+
+  }
 }
 
-.toggle-icon {
-  font-size: 14px;
-}
 
 .toggle-label {
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0%;
+
 }
 
 /* Light Theme Styles */
@@ -130,7 +154,11 @@
 }
 
 .light-theme .menu-item.active {
+  .menu-icon{
+    background-color: white;
+  }
   background-color: #4ade80;
+  font-weight: 500;
   color: #fff;
 }
 
@@ -162,7 +190,11 @@
 }
 
 .dark-theme .menu-item.active {
+  .menu-icon{
+    background-color: black;
+  }
   background-color: #1EBFB3;
+  font-weight: 500;
   color: #1e1e1e;
 }
 

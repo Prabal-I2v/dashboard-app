@@ -1,28 +1,31 @@
-<div class="notifications-panel">
+<app-dropdown-menu [showSelectionValue]="false" [isMenu]="false"
+[(isOpen)]="isQuickMenuDropdownOpen">
+  <ng-template #headerTemplate>
     <div class="tabs">
-      <button 
-        [ngClass]="{'active': activeTab === 'notifications'}" 
-        (click)="setActiveTab('notifications')">
-        Notifications
-      </button>
-      <button 
-        [ngClass]="{'active': activeTab === 'announcements'}" 
-        (click)="setActiveTab('announcements')">
-        Announcements
-      </button>
-      <button class="close-btn">
-        <i class="icon-x"></i>
-      </button>
+      <div class="tab-list">
+        <button [class.active]="activeTab === 'notifications'" (click)="setActiveTab('notifications')">
+          Notifications
+        </button>
+        <button [class.active]="activeTab === 'announcements'" (click)="setActiveTab('announcements')">
+          Announcements
+        </button>
+      </div>
+      <div class="tab-actions">
+        <button class="btn-icon"><img src="assets\icons\close-circle.svg" /></button>
+      </div>
     </div>
-    
-    <div class="notifications-list" *ngIf="activeTab === 'notifications'">
-      <app-notification-card 
-        *ngFor="let notification of notifications" 
-        [notification]="notification">
+  </ng-template>
+
+  <ng-template *ngIf="activeTab === 'notifications'" #optionTemplate let-option>
+    <div class="notifications-list">
+      <app-notification-card *ngFor="let notification of notifications" [notification]="notification">
       </app-notification-card>
     </div>
-    
-    <div class="announcements-list" *ngIf="activeTab === 'announcements'">
+  </ng-template>
+
+  <ng-template *ngIf="activeTab === 'announcements'" #optionTemplate let-option>
+    <div class="announcements-list">
       <p class="empty-state">No announcements at this time.</p>
     </div>
-  </div>
+  </ng-template>
+</app-dropdown-menu>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { INotification } from '../../core/models/notification.model';
 import { NotificationService } from '../../core/services/notification.service';
 
@@ -8,6 +8,8 @@ import { NotificationService } from '../../core/services/notification.service';
   styleUrls: ['./notifications.component.scss']
 })
 export class NotificationsComponent implements OnInit {
+  @Input() isQuickMenuDropdownOpen : boolean = false;
+  @Output() isQuickMenuDropdownOpenChange = new EventEmitter<boolean>();
   notifications: INotification[] = [];
   activeTab: 'notifications' | 'announcements' = 'notifications';
   

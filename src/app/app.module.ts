@@ -11,6 +11,10 @@ import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { ContactPageComponent } from './layout/contact-page/contact-page.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { ReimbursementComponent } from './features/reimbursement/reimbursement.component';
+import { ReimbursementRoutingModule } from './features/reimbursement/reimbursement-routing.module';
+import { ReimbursementModule } from './features/reimbursement/reimbursement.module';
+import { NotificationsModule } from './features/notifications/notifications.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     SharedModule,
     AppRoutingModule,
     DashboardModule,
+    ReimbursementModule,
+    NotificationsModule
 ],
   providers: [],
   bootstrap: [AppComponent]

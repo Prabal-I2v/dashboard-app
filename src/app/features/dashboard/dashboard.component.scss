@@ -1,9 +1,19 @@
 .main-container {
   display: flex;
+  flex-direction: column;
   gap: 30px;
-  width: 100%;
   background: var(--widget-bg-color);
   padding: 30px;
+
+  .heading {
+    font-weight: 500;
+    font-size: 32px;
+  }
+}
+
+.details-container {
+  display: flex;
+  gap: 20px;
 }
 
 .left-container {
@@ -17,18 +27,18 @@
   gap: 20px;
 }
 
-.user-details-container{
+.user-details-container {
   display: flex;
   flex-direction: row;
   gap: 20px;
   flex: 1;
 
-  .column{
+  .column {
     width: 100%;
   }
 }
 
-.small-screen-right-side-container{
+.small-screen-right-side-container {
   display: none;
 }
 
@@ -36,23 +46,25 @@
 .right-container {
   display: flex;
   width: 100%;
-  max-width: 350px; /* Keep it separate on wide screens */
+  max-width: 350px;
+  /* Keep it separate on wide screens */
 }
 
 /* Responsive behavior for screens between 0px and 1650px */
 @media (min-width: 0px) and (max-width: 1400px) {
 
-  .user-details-container{
+  .user-details-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  .small-screen-right-side-container{
+  .small-screen-right-side-container {
     display: flex;
   }
 
   .right-container {
-    display: none; /* Remove width restriction */
+    display: none;
+    /* Remove width restriction */
   }
 }

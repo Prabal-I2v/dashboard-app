@@ -1,12 +1,26 @@
 <header class="header">
   <div class="header-actions">
-    <button class="icon-btn">
+    <button class="icon-btn" (click)="toggleDropdown()">
       <img src="assets/icons/add.svg" class="icon-plus" />
     </button>
-    <button class="icon-btn notification-btn">
+    <app-dropdown-menu
+      [isMenu]="false"
+      [(isOpen)]="isQuickMenuDropdownOpen"
+      [options]="quickAddMenuOptions"
+      [showSelectionValue]="false">
+      <ng-template #optionTemplate let-option>
+        <div class="custom-option">
+          <img *ngIf="option?.icon" [src]="option.icon" alt="{{ option.label }}">
+          <span *ngIf="option?.label">{{ option.label }}</span>
+        </div>
+      </ng-template>
+    </app-dropdown-menu>
+    
+    <button class="icon-btn notification-btn" (click)="toggleNotifications()">
       <img src="assets/icons/notification.svg" class="icon-bell">
       <span class="badge" *ngIf="unreadCount > 0"></span>
     </button>
+    <app-notifications [(isQuickMenuDropdownOpen)]="isNotificationsOpen"></app-notifications>
     <div class="user-profile">
       <span>{{User.name}}</span>
       <app-dropdown-menu [options]="userMenuOptions" [showSelectionValue]="false" [selectedImage]="User.avatar">

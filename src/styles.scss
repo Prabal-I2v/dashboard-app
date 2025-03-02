@@ -26,6 +26,7 @@
     margin: 0px;
     overflow: hidden;
     box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
   }
 
   @font-face {
@@ -90,8 +91,28 @@
     font-weight: 900;
     font-style: normal;
   }
-  
-  body {
-    font-family: 'Outfit', sans-serif;
-  }
+
+
+  /* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;  /* For vertical scrollbar */
+  height: 8px; /* For horizontal scrollbar */
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
   
